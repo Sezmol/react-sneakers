@@ -11,8 +11,12 @@ body {
 
 .container {
     background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 100px auto;
-    width: 1200px;
+    max-width: 1200px;
+    min-height: 600px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
     border-radius: 20px;
 }
@@ -59,6 +63,7 @@ header {
 }
 
 .header-right div {
+    cursor: pointer;
     margin-right: 30px;
 }
 
@@ -183,23 +188,37 @@ header {
     left: 0;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
+    transform: scale(0);
+}
+
+.open-background-cart {
+    transform: scale(1);
 }
 
 .cart {
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 0;
     background-color: white;
+    top: 0;
+    right: 0;
+    z-index: 2;
     width: 385px;
     height: 100%;
     padding: 30px;
+    transform: scale(0);
+    transition: transform 0.4s;
+}
+
+.open-cart {
+    transform: scale(1);
 }
 
 .cart-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .cart-header img {
@@ -208,6 +227,14 @@ header {
 
 .cart-content {
     flex: 1;
+}
+
+.cart-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cart-card {
@@ -243,6 +270,7 @@ header {
     display: flex;
     flex-direction: column;
     font-size: 16px;
+    width: 100%;
 }
 
 .total, .tax {
@@ -271,7 +299,7 @@ header {
     font-weight: 600;
 }
 
-.cart-submit {
+.cart-button {
     cursor: pointer;
     position: relative;
     display: flex;
@@ -287,7 +315,32 @@ header {
     line-height: 19px;
 }
 
-.cart-submit img {
-    position: relative;
-    right: -30px;
+.arrow-right {
+    margin-left: 20px;
+}
+
+.arrow-left {
+    margin-right: 20px;
+}
+
+.cart-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.cart-message h3 {
+    margin-bottom: 10px;
+}
+
+.cart-message span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+    opacity: 0.4;
+    margin: 0 30px 40px 30px;
 }
